@@ -9,13 +9,24 @@ export function Posts() {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedPost, setSelectedPost] = useState(null);
 
-  // replace with useQuery
-  const { data } = useQuery({
+  const { data, isLoading, error, isError } = useQuery({
     queryKey: ["posts"], // 쿼리 키는 배열이다
     queryFn: fetchPosts,
   });
 
-  if (!data) {return <div></div>} // 임시
+  // queryFn은 비동기 함수이므로 데이터 불러오기 이전 상태를 처리해야한다.
+  if (isLoading) {
+    return <h3>Loading...</h3>;
+  }
+
+  if (isError) {
+    return (
+      <>
+        <h3>Ooops, error</h3>
+        <p>{error.toString()}</p>
+      </>
+    );
+  }
 
   return (
     <>
