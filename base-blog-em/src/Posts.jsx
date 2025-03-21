@@ -12,6 +12,7 @@ export function Posts() {
   const { data, isLoading, error, isError } = useQuery({
     queryKey: ["posts"], // 쿼리 키는 배열이다
     queryFn: fetchPosts,
+    staleTime: 2000, // ms 단위
   });
 
   // queryFn은 비동기 함수이므로 데이터 불러오기 이전 상태를 처리해야한다.
