@@ -1,8 +1,9 @@
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+
 import type { Treatment } from "@shared/types";
 
 import { axiosInstance } from "@/axiosInstance";
 import { queryKeys } from "@/react-query/constants";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 // for when we need a query function for useQuery
 async function getTreatments(): Promise<Treatment[]> {
