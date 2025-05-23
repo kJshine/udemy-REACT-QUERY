@@ -13,7 +13,7 @@ export function Treatments() {
       </Heading>
       <HStack m={10} spacing={8} justify="center">
         {treatments.map((treatmentData) => (
-          <Treatment key={treatmentData.id} treatmentData={treatmentData} />
+          <Treatment key={treatmentData.id} treatmentData={treatmentData} /> 
         ))}
       </HStack>
     </Box>
